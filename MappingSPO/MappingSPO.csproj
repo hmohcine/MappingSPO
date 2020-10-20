@@ -1,0 +1,1523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E35B4670-4F15-43CB-926C-C9D5FC51A5CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MappingSPO</RootNamespace>
+    <AssemblyName>MappingSPO</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MappingSPO.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.0.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.9\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.9\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\ActiviteitenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ActiviteitGpsLinkDataEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ActiviteitGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AddinContractEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AddinContractsSecurityEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AddinEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AfdelingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AfmeldingPuntTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AfmeldingsPuntenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AfmeldingspuntenGpsLinkDataEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ArticleDefaultEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AutomaticCalcLibraryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\AutomaticCalcSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BAnaCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BAnaGroup1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BAnaSubGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BatchJobEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BatchJobParameterEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BatchServiceSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BetaalWijzeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BoekPeriodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\BtwBoekingsgroepEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode5EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode6EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode7EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcCode8EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcErrorEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcFilterEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcLineTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CalcTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CashDiscountEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CategoryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CityEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\Class1.cs" />
+    <Compile Include="Configurations\ClientDiscountEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CodaBoxSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CodeCaptionTranslationEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CodeTranslationEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CompanyEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CompanyRekeningenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CompanyUserGroepRightEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CompanyUserRightEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ConfigurationGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ContactCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ContactEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ContactsMultiAnaCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ContactTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CostHeaderTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CounterDefinitionEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CounterWerkCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CountriesLinkDataEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CountryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CountryLanguageEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\CurrencyEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DagZoneEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocumentEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DocumentTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\DynAx2012CustSettingsEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmailTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmailTypeTextEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAddinContractEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAddinContractsSecurityEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAddinEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode5EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode6EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode7EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode8EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaAnaCode9EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaMagazijnEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaOfferLabelValueEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaOfferTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaTextenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaTextGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaUserSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaVerzendwijzeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmmaVkoTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\EmployeeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExactOnlineSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExportVatSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExternalApiSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExternalDatabaseEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExternalInvoiceBuildSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ExternalInvoiceUserSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\HcEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\HerzieningIndexEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\HerzieningTemplateEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\HerzieningTemplateTermEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\IncomingInvoiceSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\InvoiceEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\InvoiceExportEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\InvoiceExportGeneralEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\InvoicePlanDefaultEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\InvoicePlanDefaultsSchijvenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\KsEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\LanguageEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\MaatTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\MagazijnEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\MobiliteitsCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\MobiliteitsCodeTarievenEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\MobiliteitTariefDetailEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\OpmetingDefinitionEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ParitairComiteCounterEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ParitairComiteEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\PayConditionEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\PlanningResourceEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\PrijsAntwoordSoortEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode5EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode6EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode7EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectCode8EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectExplorerSpecialQueryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectResultReasonEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectTypeUserEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectTypeUserGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectTypeWorkFlowEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectUnitCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectUnitMultiAnaCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ProjectUnitsSearchMapUserSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\QueriesDxEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\QueryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RegionEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RekeningNrEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelActiviteitEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelActiviteitGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode5EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode6EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode7EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationCode8EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationsContactEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelationTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelOpportunityEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\RelOpportunityGroupEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ReportEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ReportLayoutsDxEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ReportsDxEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ReportsDxFormLinkEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SageBobCompanySettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SalesDefaultEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SecurityRuleEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SubCategoryEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysCalculationParaEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysMasterProjectSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysMpSettingsCijferEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysMpSettingsCijfersLabelEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysProjectSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysProjectUserSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysRelationsParaEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysSalesInvoiceParaEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysUserFilterEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysUserSettingObjectEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysUserSettingUserObjectEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysUserViewEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\SysWerfParaEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\TeamsIntegrationEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\ToDoItemStateEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\TodoTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\TodoTypeItemStateEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\TofSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\TransportMiddelEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\UcEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\UcUcEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\UnitTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\UserEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\UsersGroepEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\VatEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\VatRegimeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\VatRegimeNoteEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\VeniceSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode1EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode2EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode3EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode4EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode5EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode6EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode7EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfCode8EntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfDocSearchMapUserSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfMultiAnaCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfPropertiesItemEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerfTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WerkCodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WholesalerEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WholesalerUnitcodeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WholesalerUserEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WinbookEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WinbooksBoekYearPeriodToBoekingDatumEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WinbooksCompanyEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WinbooksCompanyTableEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WinbooksSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WingsSettingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WorkerContractTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WorkFlowEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WorkOrderTimeItemsCounterEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WorkOrderTypeAfdelingEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\WorkOrderTypeEntityConfiguration.cs">
+      <DependentUpon>ConfigurationGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContextGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\IContextGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\IXrmContext.cs">
+      <DependentUpon>IContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ActiviteitenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ActiviteitGpsLinkDataEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ActiviteitGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AddinContractEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AddinContractsSecurityEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AddinEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AfdelingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AfmeldingPuntTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AfmeldingsPuntenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AfmeldingspuntenGpsLinkDataEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ArticleDefaultEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AutomaticCalcLibraryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AutomaticCalcSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BAnaCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BAnaGroup1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BAnaSubGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BatchJobEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BatchJobParameterEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BatchServiceSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BetaalWijzeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BoekPeriodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BtwBoekingsgroepEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode5Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode6Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode7Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcCode8Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcErrorEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcFilterEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcLineTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CalcTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CashDiscountEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CategoryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CityEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientDiscountEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CodaBoxSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CodeCaptionTranslationEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CodeTranslationEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CompanyEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CompanyRekeningenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CompanyUserGroepRightEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CompanyUserRightEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContactCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContactEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContactsMultiAnaCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContactTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CostHeaderTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CounterDefinitionEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CounterWerkCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CountriesLinkDataEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CountryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CountryLanguageEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CurrencyEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DagZoneEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocumentEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DocumentTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DynAx2012CustSettingsEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmailTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmailTypeTextEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAddinContractEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAddinContractsSecurityEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAddinEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode5Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode6Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode7Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode8Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaAnaCode9Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaMagazijnEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaOfferLabelValueEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaOfferTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaTextenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaTextGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaUserSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaVerzendwijzeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmmaVkoTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmployeeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EntitiesGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExactOnlineSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExportVatSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExternalApiSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExternalDatabaseEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExternalInvoiceBuildSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExternalInvoiceUserSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HcEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HerzieningIndexEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HerzieningTemplateEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HerzieningTemplateTermEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\IncomingInvoiceSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvoiceEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvoiceExportEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvoiceExportGeneralEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvoicePlanDefaultEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\InvoicePlanDefaultsSchijvenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\KsEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LanguageEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaatTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MagazijnEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MobiliteitsCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MobiliteitsCodeTarievenEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MobiliteitTariefDetailEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OpmetingDefinitionEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ParitairComiteCounterEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ParitairComiteEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PayConditionEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PlanningResourceEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PrijsAntwoordSoortEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode5Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode6Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode7Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectCode8Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectExplorerSpecialQueryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectResultReasonEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectTypeUserEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectTypeUserGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectTypeWorkFlowEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectUnitCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectUnitMultiAnaCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectUnitsSearchMapUserSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QueriesDxEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\QueryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RegionEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RekeningNrEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelActiviteitEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelActiviteitGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode5Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode6Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode7Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationCode8Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationsContactEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelationTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelOpportunityEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RelOpportunityGroupEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ReportEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ReportLayoutsDxEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ReportsDxEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ReportsDxFormLinkEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SageBobCompanySettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SalesDefaultEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SecurityRuleEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SubCategoryEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysCalculationParaEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysMasterProjectSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysMpSettingsCijferEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysMpSettingsCijfersLabelEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysProjectSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysProjectUserSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysRelationsParaEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysSalesInvoiceParaEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysUserFilterEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysUserSettingObjectEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysUserSettingUserObjectEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysUserViewEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SysWerfParaEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TeamsIntegrationEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ToDoItemStateEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TodoTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TodoTypeItemStateEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TofSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TransportMiddelEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UcEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UcUcEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UnitTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UsersGroepEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VatEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VatRegimeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VatRegimeNoteEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VeniceSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode1Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode2Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode3Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode4Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode5Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode6Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode7Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfCode8Entity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfDocSearchMapUserSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfMultiAnaCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfPropertiesItemEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerfTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WerkCodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WholesalerEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WholesalerUnitcodeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WholesalerUserEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinbookEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinbooksBoekYearPeriodToBoekingDatumEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinbooksCompanyEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinbooksCompanyTableEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinbooksSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WingsSettingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WorkerContractTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WorkFlowEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WorkOrderTimeItemsCounterEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WorkOrderTypeAfdelingEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WorkOrderTypeEntity.cs">
+      <DependentUpon>EntitiesGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeDbSet.cs">
+      <DependentUpon>ContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeXrmContext.cs">
+      <DependentUpon>ContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XrmContext.cs">
+      <DependentUpon>ContextGenerator.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="EF.Reverse.POCO.ttinclude" />
+    <None Include="EF.Reverse.POCO.v3.ttinclude" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MappingSPO.BL\MappingSPO.Framework.BL.csproj">
+      <Project>{19d51f8d-6348-4f02-b945-c64e9500db85}</Project>
+      <Name>MappingSPO.Framework.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MappingSPO.Framework.DL\MappingSPO.Framework.DL.csproj">
+      <Project>{2809c029-f507-4eab-af29-99649ce46e9e}</Project>
+      <Name>MappingSPO.Framework.DL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MappingSPO.Project.DL\MappingSPO.Project.DL.csproj">
+      <Project>{502c6907-a162-48f5-8b33-edd81114b42b}</Project>
+      <Name>MappingSPO.Project.DL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configurations\ConfigurationGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConfigurationGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="ContextGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ContextGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contracts\IContextGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IContextGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\EntitiesGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitiesGenerator.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
