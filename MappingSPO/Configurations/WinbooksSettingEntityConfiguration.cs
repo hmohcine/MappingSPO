@@ -47,6 +47,7 @@ namespace MappingSPO
             Property(x => x.SiteFieldToExport).HasColumnName(@"SiteFieldToExport").HasColumnType("int").IsRequired();
             Property(x => x.PurchaseExcludeSite).HasColumnName(@"PurchaseExcludeSite").HasColumnType("nvarchar(max)").IsOptional();
             Property(x => x.PaymentsSync).HasColumnName(@"PaymentsSync").HasColumnType("bit").IsRequired();
+            Property(x => x.Perform1WayMatching).HasColumnName(@"Perform1WayMatching").HasColumnType("bit").IsRequired();
 
             HasRequired(a => a.Company).WithMany(b => b.WinbooksSettings).HasForeignKey(c => c.CompanyId).WillCascadeOnDelete(false);
         }

@@ -5,7 +5,6 @@ namespace MappingSPO.Project.DL.Entities
     {
 		public ContactEntity()
         {
-            PlaceOfBirth = "Ramsel";
             CostHeaders = new System.Collections.Generic.List<CostHeaderEntity>();
             TodoItems = new System.Collections.Generic.List<TodoItemEntity>();
             WerfInvoiceAdresses = new System.Collections.Generic.List<WerfInvoiceAdressEntity>();
@@ -46,7 +45,7 @@ namespace MappingSPO.Project.DL.Entities
         public string Code6 { get; set; }
         public string Code7 { get; set; }
         public string Code8 { get; set; }
-        public System.DateTime DateOfBirth { get; set; }
+        public System.DateTime? DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string NationalNumber { get; set; }
         public string IdNumber { get; set; }

@@ -18,6 +18,7 @@ namespace MappingSPO.Entities
             WerfAnalyseMode = 0;
             VordShowSubTotalsOnHfst = false;
             SyncWerflijst = false;
+            UseNewWerfScreen = false;
             InitializePartial();
 		}
 
@@ -161,6 +162,11 @@ namespace MappingSPO.Entities
         public long? DefaultVerkoopCatHerziening { get; set; }
         public long? DefaultVerkoopCatRegie { get; set; }
         public bool SyncWerflijst { get; set; }
+        public bool UseNewWerfScreen { get; set; }
+        public string ExtraBoolean1Label { get; set; }
+        public string ExtraBoolean2Label { get; set; }
+        public string ExtraBoolean3Label { get; set; }
+        public string ExtraBoolean4Label { get; set; }
         public CostHeaderTypeEntity CostHeaderType { get; set; }
         public RelActiviteitEntity RelActiviteit_DefaultInkoopCat { get; set; }
         public RelActiviteitEntity RelActiviteit_DefaultVerkoopCat { get; set; }

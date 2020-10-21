@@ -47,8 +47,8 @@ namespace MappingSPO
             Property(x => x.Code6).HasColumnName(@"Code6").HasColumnType("nvarchar").IsOptional().HasMaxLength(255);
             Property(x => x.Code7).HasColumnName(@"Code7").HasColumnType("nvarchar").IsOptional().HasMaxLength(255);
             Property(x => x.Code8).HasColumnName(@"Code8").HasColumnType("nvarchar").IsOptional().HasMaxLength(255);
-            Property(x => x.DateOfBirth).HasColumnName(@"DateOfBirth").HasColumnType("datetime").IsRequired();
-            Property(x => x.PlaceOfBirth).HasColumnName(@"PlaceOfBirth").HasColumnType("nvarchar").IsRequired().HasMaxLength(100);
+            Property(x => x.DateOfBirth).HasColumnName(@"DateOfBirth").HasColumnType("datetime").IsOptional();
+            Property(x => x.PlaceOfBirth).HasColumnName(@"PlaceOfBirth").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
             Property(x => x.NationalNumber).HasColumnName(@"NationalNumber").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
             Property(x => x.IdNumber).HasColumnName(@"IDNumber").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);
             Property(x => x.Nationality).HasColumnName(@"Nationality").HasColumnType("nvarchar").IsOptional().HasMaxLength(100);

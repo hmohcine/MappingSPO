@@ -154,6 +154,11 @@ namespace MappingSPO
             Property(x => x.DefaultVerkoopCatHerziening).HasColumnName(@"DefaultVerkoopCatHerziening").HasColumnType("bigint").IsOptional();
             Property(x => x.DefaultVerkoopCatRegie).HasColumnName(@"DefaultVerkoopCatRegie").HasColumnType("bigint").IsOptional();
             Property(x => x.SyncWerflijst).HasColumnName(@"SyncWerflijst").HasColumnType("bit").IsRequired();
+            Property(x => x.UseNewWerfScreen).HasColumnName(@"UseNewWerfScreen").HasColumnType("bit").IsRequired();
+            Property(x => x.ExtraBoolean1Label).HasColumnName(@"ExtraBoolean1Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
+            Property(x => x.ExtraBoolean2Label).HasColumnName(@"ExtraBoolean2Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
+            Property(x => x.ExtraBoolean3Label).HasColumnName(@"ExtraBoolean3Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
+            Property(x => x.ExtraBoolean4Label).HasColumnName(@"ExtraBoolean4Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
 
             HasOptional(a => a.CostHeaderType).WithMany(b => b.SysWerfParas).HasForeignKey(c => c.AutoCreateCostTemplate).WillCascadeOnDelete(false);
             HasOptional(a => a.RelActiviteit_DefaultInkoopCat).WithMany(b => b.SysWerfParas_DefaultInkoopCat).HasForeignKey(c => c.DefaultInkoopCat).WillCascadeOnDelete(false);

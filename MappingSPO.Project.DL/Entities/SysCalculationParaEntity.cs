@@ -10,6 +10,7 @@ namespace MappingSPO.Project.DL.Entities
             CadCamDefaultType = 0;
             KeepAddingOnPostMode = false;
             NewCalcUIversion = 0;
+            EnablePocs = false;
             InitializePartial();
 		}
 
@@ -153,6 +154,7 @@ namespace MappingSPO.Project.DL.Entities
         public string ExtraBoolean6Label { get; set; }
         public string ExtraBoolean7Label { get; set; }
         public string ExtraBoolean8Label { get; set; }
+        public bool EnablePocs { get; set; }
         public CalcTypeEntity AutoBackupRestoreCalcType { get; set; }
         public CalcTypeEntity CalcType_CalcDefaultType { get; set; }
              

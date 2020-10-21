@@ -61,6 +61,7 @@ namespace MappingSPO
             Property(x => x.ParentCompanyId).HasColumnName(@"ParentCompanyID").HasColumnType("int").IsOptional();
             Property(x => x.VoorschotBedragPerRefDag).HasColumnName(@"VoorschotBedragPerRefDag").HasColumnType("decimal").IsOptional().HasPrecision(20,6);
             Property(x => x.VoorschotWerkCode).HasColumnName(@"VoorschotWerkCode").HasColumnType("nvarchar").IsOptional().HasMaxLength(10);
+            Property(x => x.SecurityMode).HasColumnName(@"SecurityMode").HasColumnType("int").IsRequired();
 
             HasOptional(a => a.Country).WithMany(b => b.Companies).HasForeignKey(c => c.CountryCode).WillCascadeOnDelete(false);
             HasOptional(a => a.Language_Language).WithMany(b => b.Companies).HasForeignKey(c => c.Language).WillCascadeOnDelete(false);

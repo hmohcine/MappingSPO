@@ -22,6 +22,7 @@ namespace MappingSPO.Project.DL.Entities
             ExtraBoolean6 = false;
             ExtraBoolean7 = false;
             ExtraBoolean8 = false;
+            LockPostAantal = false;
             BibUsers = new System.Collections.Generic.List<BibUserEntity>();
             CalcActiviteitens = new System.Collections.Generic.List<CalcActiviteitenEntity>();
             CalcDetails = new System.Collections.Generic.List<CalcDetailEntity>();
@@ -194,6 +195,7 @@ namespace MappingSPO.Project.DL.Entities
         public bool ExtraBoolean7 { get; set; }
         public bool ExtraBoolean8 { get; set; }
         public int? VersieRaw { get; set; }
+        public bool LockPostAantal { get; set; }
         public CalcAddTemplateEntity CalcAddTemplate { get; set; }
         public CalculationVersionEntity CalculationVersion { get; set; }
         public System.Collections.Generic.ICollection<BibUserEntity> BibUsers { get; set; }

@@ -57,6 +57,7 @@ namespace MappingSPO.Project.DL.Entities
         public string ContactPerson { get; set; }
         public string InkoopCats { get; set; }
         public string InkoopCatGroups { get; set; }
+        public int? CompanyId { get; set; }
         public string Company { get; set; }
         public bool IsRetour { get; set; }
              

@@ -38,6 +38,9 @@ namespace MappingSPO
             Property(x => x.Code7Required).HasColumnName(@"Code7Required").HasColumnType("bit").IsRequired();
             Property(x => x.Code8Required).HasColumnName(@"Code8Required").HasColumnType("bit").IsRequired();
             Property(x => x.ShouldHaveChildern).HasColumnName(@"ShouldHaveChildern").HasColumnType("bit").IsRequired();
+            Property(x => x.ToTypeIfSamengesteld).HasColumnName(@"ToTypeIfSamengesteld").HasColumnType("nchar").IsOptional().IsFixedLength().HasMaxLength(2);
+
+            HasOptional(a => a.CalcLineType_ToTypeIfSamengesteld).WithMany(b => b.CalcLineTypes).HasForeignKey(c => c.ToTypeIfSamengesteld).WillCascadeOnDelete(false);
         }
     }
 }

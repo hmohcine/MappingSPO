@@ -11,6 +11,6 @@ namespace MappingSPO.Framework.BL.Contracts.Project
 {
     public interface IProjectService : IService
     {
-        List<ProjectEntity> GetAllProjects();
+        List<VModels.SPO.Project> GetAllProjects();
     }
 }

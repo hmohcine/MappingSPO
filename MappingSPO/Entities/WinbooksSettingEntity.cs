@@ -16,6 +16,7 @@ namespace MappingSPO.Entities
             PurchaseSync = true;
             SiteFieldToExport = 0;
             PaymentsSync = false;
+            Perform1WayMatching = false;
             InitializePartial();
 		}
 
@@ -52,6 +53,7 @@ namespace MappingSPO.Entities
         public int SiteFieldToExport { get; set; }
         public string PurchaseExcludeSite { get; set; }
         public bool PaymentsSync { get; set; }
+        public bool Perform1WayMatching { get; set; }
         public CompanyEntity Company { get; set; }
              
         partial void InitializePartial();

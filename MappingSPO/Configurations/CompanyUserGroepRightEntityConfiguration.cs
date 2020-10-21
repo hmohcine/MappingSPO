@@ -17,6 +17,7 @@ namespace MappingSPO
             Property(x => x.CompanyId).HasColumnName(@"CompanyID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
             Property(x => x.UserGroupId).HasColumnName(@"UserGroupID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
             Property(x => x.PayrollAdminYn).HasColumnName(@"PayrollAdminYn").HasColumnType("bit").IsRequired();
+            Property(x => x.BuildYn).HasColumnName(@"BuildYn").HasColumnType("bit").IsRequired();
 
             HasRequired(a => a.Company).WithMany(b => b.CompanyUserGroepRights).HasForeignKey(c => c.CompanyId).WillCascadeOnDelete(false);
             HasRequired(a => a.UsersGroep).WithMany(b => b.CompanyUserGroepRights).HasForeignKey(c => c.UserGroupId).WillCascadeOnDelete(false);

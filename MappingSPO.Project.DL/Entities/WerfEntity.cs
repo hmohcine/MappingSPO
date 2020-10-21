@@ -127,6 +127,10 @@ namespace MappingSPO.Project.DL.Entities
         public int? PlanningsMode { get; set; }
         public long? BsMagazijnId { get; set; }
         public long? BsToonzaalId { get; set; }
+        public bool? ExtraBoolean1 { get; set; }
+        public bool? ExtraBoolean2 { get; set; }
+        public bool? ExtraBoolean3 { get; set; }
+        public bool? ExtraBoolean4 { get; set; }
         public System.Collections.Generic.ICollection<CostDetailCoreEntity> CostDetailCores { get; set; }
         public System.Collections.Generic.ICollection<CostHeaderEntity> CostHeaders { get; set; }
         public System.Collections.Generic.ICollection<ProjectWerfEntity> ProjectWerfs { get; set; }

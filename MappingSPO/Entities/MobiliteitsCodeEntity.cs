@@ -14,9 +14,11 @@ namespace MappingSPO.Entities
         public string Code { get; set; }
         public string Description { get; set; }
         public int? MasterType { get; set; }
+        public string WerkCode { get; set; }
         public System.Collections.Generic.ICollection<EmployeeEntity> Employees { get; set; }
         public System.Collections.Generic.ICollection<MobiliteitsCodeTarievenEntity> MobiliteitsCodeTarievens { get; set; }
         public System.Collections.Generic.ICollection<MobiliteitTariefDetailEntity> MobiliteitTariefDetails { get; set; }
+        public WerkCodeEntity WerkCode_WerkCode { get; set; }
              
         partial void InitializePartial();
     }

@@ -32,3 +32,38 @@ C:\Users\user\Desktop\Build Software\MappingSPO\MappingSPO\MappingSPO.Project.DL
 C:\Users\user\Desktop\Build Software\MappingSPO\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.csproj.CopyComplete
 C:\Users\user\Desktop\Build Software\MappingSPO\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.dll
 C:\Users\user\Desktop\Build Software\MappingSPO\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.pdb
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Project.DL.dll.config
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Project.DL.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Project.DL.pdb
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Autofac.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\CodeFirstStoreFunctions.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\EntityFramework.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Framework.DL.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Buffers.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Memory.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Z.EntityFramework.Extensions.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Framework.DL.pdb
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\MappingSPO.Framework.DL.dll.config
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Autofac.pdb
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Autofac.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\EntityFramework.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Buffers.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Memory.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\bin\Debug\Z.EntityFramework.Extensions.xml
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.csprojAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.csproj.CopyComplete
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.dll
+C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Project.DL\obj\Debug\MappingSPO.Project.DL.pdb

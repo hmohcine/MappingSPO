@@ -84,6 +84,7 @@ namespace MappingSPO.Project.DL.Entities
         public double? GeleverdAndUsed { get; set; }
         public string Activiteit { get; set; }
         public string Activiteitgroup { get; set; }
+        public int? CompanyId { get; set; }
         public string Company { get; set; }
         public int BestelBonType { get; set; }
         public string LanguageCode { get; set; }

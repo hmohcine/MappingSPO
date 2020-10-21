@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MappingSPO.Framework.BL.Contracts.Project;
-using MappingSPO.Framework.BL.VModels.Project;
+using MappingSPO.Framework.BL.VModels.SPO;
 using MappingSPO.Framework.DL.Contracts;
 using MappingSPO.Project.DL.Contracts;
 using MappingSPO.Project.DL.Entities;
@@ -23,11 +23,20 @@ namespace MappingSPO.Framework.BL.Services.Project
             _dataRepositoryFactory = dataRepositoryFactory;
         }
 
-        public List<ProjectEntity> GetAllProjects()
+        public List<VModels.SPO.Project> GetAllProjects()
         {
             var repo = _dataRepositoryFactory.GetDataRepository<IProjectRepository>();
             var entity = repo.GetAllProjects().ToList();
-            var result = _mapper.Map<List<ProjectEntity>>(entity);
+            var ListProjects = entity.Select(f => new VModels.SPO.Project
+            {
+                ProjectNumber = f.ProjectNumber,
+                ProjectName=f.ProjectName,
+                ProjectState=f.ProjectState,
+                Owner=f.Owner,
+                ProjectVerantWoordelijke1=f.ProjectVerantWoordelijke1,
+                ProjectVerantWoordelijke2=f.ProjectVerantWoordelijke2,
+            }).ToList();
+            var result = _mapper.Map<List<VModels.SPO.Project>>(ListProjects);
             return result;
         }
     }

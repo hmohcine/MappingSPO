@@ -24,6 +24,9 @@ namespace MappingSPO
             Property(x => x.ExtVvGroepSCode).HasColumnName(@"ExtVV_GroepSCode").HasColumnType("nvarchar").IsOptional().HasMaxLength(20);
             Property(x => x.VoorschotBerekenenYn).HasColumnName(@"VoorschotBerekenenYn").HasColumnType("bit").IsRequired();
             Property(x => x.WerkcodeType).HasColumnName(@"WerkcodeType").HasColumnType("int").IsRequired();
+            Property(x => x.Ks).HasColumnName(@"KS").HasColumnType("nvarchar").IsOptional().HasMaxLength(10);
+
+            HasOptional(a => a.Ks_Ks).WithMany(b => b.WerkCodes).HasForeignKey(c => c.Ks).WillCascadeOnDelete(false);
         }
     }
 }

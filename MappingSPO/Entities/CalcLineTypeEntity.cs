@@ -19,6 +19,7 @@ namespace MappingSPO.Entities
             Code7Required = false;
             Code8Required = false;
             ShouldHaveChildern = false;
+            CalcLineTypes = new System.Collections.Generic.List<CalcLineTypeEntity>();
             InitializePartial();
 		}
 
@@ -46,6 +47,9 @@ namespace MappingSPO.Entities
         public bool Code7Required { get; set; }
         public bool Code8Required { get; set; }
         public bool ShouldHaveChildern { get; set; }
+        public string ToTypeIfSamengesteld { get; set; }
+        public System.Collections.Generic.ICollection<CalcLineTypeEntity> CalcLineTypes { get; set; }
+        public CalcLineTypeEntity CalcLineType_ToTypeIfSamengesteld { get; set; }
              
         partial void InitializePartial();
     }

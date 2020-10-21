@@ -1,8 +1,9 @@
+using MappingSPO.Project.DL.Configurations;
+using MappingSPO.Project.DL.Contracts;
 using MappingSPO.Project.DL.Entities;
 
 namespace MappingSPO.Project.DL
 {
-    using MappingSPO.Project.DL.Contracts;
     using System.Linq;
 
     public partial class FakeProjectContext : IProjectContext

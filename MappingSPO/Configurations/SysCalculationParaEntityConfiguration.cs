@@ -154,6 +154,7 @@ namespace MappingSPO
             Property(x => x.ExtraBoolean6Label).HasColumnName(@"ExtraBoolean6Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
             Property(x => x.ExtraBoolean7Label).HasColumnName(@"ExtraBoolean7Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
             Property(x => x.ExtraBoolean8Label).HasColumnName(@"ExtraBoolean8Label").HasColumnType("nvarchar").IsOptional().HasMaxLength(35);
+            Property(x => x.EnablePocs).HasColumnName(@"EnablePOCS").HasColumnType("bit").IsRequired();
 
             HasOptional(a => a.AutoBackupRestoreCalcType).WithMany(b => b.SysCalculationParas_AutoBackupRestoreCalcTypeId).HasForeignKey(c => c.AutoBackupRestoreCalcTypeId).WillCascadeOnDelete(false);
             HasOptional(a => a.CalcType_CalcDefaultType).WithMany(b => b.SysCalculationParas_CalcDefaultType).HasForeignKey(c => c.CalcDefaultType).WillCascadeOnDelete(false);

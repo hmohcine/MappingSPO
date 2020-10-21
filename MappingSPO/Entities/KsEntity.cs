@@ -11,6 +11,7 @@ namespace MappingSPO.Entities
             CostHeaderTypes = new System.Collections.Generic.List<CostHeaderTypeEntity>();
             Employees = new System.Collections.Generic.List<EmployeeEntity>();
             Relations = new System.Collections.Generic.List<RelationEntity>();
+            WerkCodes = new System.Collections.Generic.List<WerkCodeEntity>();
             InitializePartial();
 		}
 
@@ -30,6 +31,7 @@ namespace MappingSPO.Entities
         public System.Collections.Generic.ICollection<CostHeaderTypeEntity> CostHeaderTypes { get; set; }
         public System.Collections.Generic.ICollection<EmployeeEntity> Employees { get; set; }
         public System.Collections.Generic.ICollection<RelationEntity> Relations { get; set; }
+        public System.Collections.Generic.ICollection<WerkCodeEntity> WerkCodes { get; set; }
         public ActiviteitenEntity Activiteiten { get; set; }
              
         partial void InitializePartial();

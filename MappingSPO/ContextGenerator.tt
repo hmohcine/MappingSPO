@@ -10,7 +10,7 @@
     // ConnectionStringName is the only required setting.
     Settings.CommandTimeout = 600; // SQL Command timeout in seconds. 600 is 10 minutes, 0 will wait indefinately. Some databases can be slow retrieving schema information.
     // As an alternative to ConnectionStringName above, which must match your app/web.config connection string name, you can override them below
-    Settings.ConnectionString = @"Data Source=.\NBUILD;initial catalog=BuildDataDevDeWaal;persist security info=True;user id=sa;password=csbc*888";
+    Settings.ConnectionString = @"Data Source=.;initial catalog=BuildDataDevDeWaal;persist security info=True;user id=sa;password=oussama";
     Settings.ProviderName = "System.Data.SqlClient";
 
     Settings.Namespace = "MappingSPO"; // Override the default namespace here

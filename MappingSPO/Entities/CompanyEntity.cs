@@ -8,6 +8,7 @@ namespace MappingSPO.Entities
             ShowOgm = false;
             OgmPrefixInUse = false;
             CompanyType = 0;
+            SecurityMode = 0;
             BoekPeriodes = new System.Collections.Generic.List<BoekPeriodeEntity>();
             CompanyRekeningens = new System.Collections.Generic.List<CompanyRekeningenEntity>();
             CompanyUserGroepRights = new System.Collections.Generic.List<CompanyUserGroepRightEntity>();
@@ -73,6 +74,7 @@ namespace MappingSPO.Entities
         public int? ParentCompanyId { get; set; }
         public decimal? VoorschotBedragPerRefDag { get; set; }
         public string VoorschotWerkCode { get; set; }
+        public int SecurityMode { get; set; }
         public System.Collections.Generic.ICollection<BoekPeriodeEntity> BoekPeriodes { get; set; }
         public System.Collections.Generic.ICollection<CompanyRekeningenEntity> CompanyRekeningens { get; set; }
         public System.Collections.Generic.ICollection<CompanyUserGroepRightEntity> CompanyUserGroepRights { get; set; }

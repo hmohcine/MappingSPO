@@ -112,6 +112,7 @@ namespace MappingSPO.Project.DL.Entities
         public double? TotalCostContract { get; set; }
         public double? TotalCost { get; set; }
         public decimal? PurchaseInvoiceTotal { get; set; }
+        public string LanguageCode { get; set; }
         public System.Collections.Generic.ICollection<WProjectRelationsDxEntity> WProjectRelationsDxes { get; set; }
              
         partial void InitializePartial();

@@ -1,3 +1,5 @@
+using MappingSPO.Project.DL.Configurations;
+using MappingSPO.Project.DL.Contracts;
 using MappingSPO.Project.DL.Entities;
 
 namespace MappingSPO.Project.DL

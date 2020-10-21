@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MappingSPO.Framework.BL.Contracts.Project;
 using MappingSPO.Framework.BL.VModels.Project;
+using MappingSPO.Framework.BL.VModels.SPO;
 using MappingSPO.Framework.DL.Contracts;
 using MappingSPO.Project.DL.Contracts;
 using System;
@@ -21,12 +22,25 @@ namespace MappingSPO.Framework.BL.Services.Project
             _mapper = mapper;
             _dataRepositoryFactory = dataRepositoryFactory;
         }
-
-        public List<SiteVM> GetAllSites()
+        public List<Site> GetAllSites()
         {
             var repo = _dataRepositoryFactory.GetDataRepository<ISiteRepository>();
+            var repoProject = _dataRepositoryFactory.GetDataRepository<IProjectRepository>();
             var entity = repo.GetAllSites();
-            var result = _mapper.Map<List<SiteVM>>(entity);
+            var entityProject = repoProject.GetProjectsWithSite();
+            var ListSites = entity.Select(f => new Site
+            {
+                WerfId = f.WerfId,
+                WerfName = f.WerfName,
+                WerfNumber = f.WerfNumber,
+                WerfState = f.WerfState,
+                Bedrijf = f.CompanyId.ToString(),
+                ProjectName = (entityProject.Any(c => c.WerfId == f.WerfId))
+                            ? entityProject.FirstOrDefault(x => x.WerfId == f.WerfId).ProjectId.ToString() : null,
+                VerantWoordelijke1 = f.ProjectLeider,
+                  VerantWoordelijke2= f.Werfleider,
+            }).ToList();
+            var result = _mapper.Map<List<Site>>(ListSites);
             return result;
         }
     }

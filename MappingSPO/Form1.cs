@@ -16,6 +16,7 @@ namespace MappingSPO
 
 
         private readonly IProjectService _projectService;
+        private readonly ISiteService _siteService;
 
         //public Form1()
         //{
@@ -26,6 +27,7 @@ namespace MappingSPO
         {
             InitializeComponent();
             _projectService = serviceFactory.GetService<IProjectService>();
+            _siteService = serviceFactory.GetService<ISiteService>();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,9 +39,9 @@ namespace MappingSPO
             listBoxControl1.Items.Clear();
             foreach (var item in ProjectList)
             {
-                listBoxControl1.Items.Add(item.ProjectName + "#" + item.ProjectId);
+                listBoxControl1.Items.Add(item.ProjectName + "#" + item.ProjectNumber);
             }
-           
+
 
         }
 
@@ -60,12 +62,12 @@ namespace MappingSPO
                 var project = myProjectContext.Projects.FirstOrDefault(x => x.ProjectId == projectId);
 
                 // get Resp Project
-                
+
                 if (project.ProjectVerantWoordelijke1.HasValue)
                 {
                     var employee = myXrmContext.Employees.FirstOrDefault(x => x.EmployeeId == project.ProjectVerantWoordelijke1);
                     if (employee != null)
-                        listBoxControl4.Items.Add("ProjectVerantWoordelijke1  : "+employee.FirstName + " " + employee.LastName + "#" + employee.Email);
+                        listBoxControl4.Items.Add("ProjectVerantWoordelijke1  : " + employee.FirstName + " " + employee.LastName + "#" + employee.Email);
                 }
                 if (project.ProjectVerantWoordelijke2.HasValue)
                 {
@@ -108,7 +110,7 @@ namespace MappingSPO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var ListCalculation = myProjectContext.Calculations.Where(x=>x.Domain.ToLower().Contains("c")).ToList();
+            var ListCalculation = myProjectContext.Calculations.Where(x => x.Domain.ToLower().Contains("c")).ToList();
             listBoxControl3.Items.Clear();
             foreach (var item in ListCalculation)
             {
@@ -118,11 +120,12 @@ namespace MappingSPO
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var ListSites = myProjectContext.ProjectWerfs.Select(f=>f.Werf).ToList();
+            var ListSites = _siteService.GetAllSites();
             listBoxControl2.Items.Clear();
             foreach (var item in ListSites)
             {
-                listBoxControl2.Items.Add(item.WerfName + "#" + item.WerfId);
+                listBoxControl2.Items.Add(item.WerfName + "#" + item.WerfId + "#" +
+                                           item.ProjectName + "#" + item.VerantWoordelijke1 + "#" + item.VerantWoordelijke2 + "#" + item.WerfNumber);
             }
         }
 
@@ -143,7 +146,7 @@ namespace MappingSPO
             {
                 var relationId = Convert.ToInt32(listBoxControl5.SelectedItem.ToString().Split('#')[1]);
                 var ListContacts = myXrmContext.RelationsContacts.Where(x => x.RelationId == relationId).ToList();
-                
+
                 foreach (var item in ListContacts)
                 {
                     var contact = myXrmContext.Contacts.FirstOrDefault(x => x.ContactId == item.ContactId);
@@ -172,7 +175,7 @@ namespace MappingSPO
             listBoxControl7.Items.Clear();
             if (listBoxControl2.SelectedItem != null)
             {
-                var SiteId = Convert.ToInt32(listBoxControl2.SelectedItem.ToString().Split('#')[1]);
+                var SiteId = Convert.ToInt32(listBoxControl2.SelectedItem.ToString().Split('#')[1]);   
                 if (SiteId != 0)
                 {
                     var site = myProjectContext.ProjectWerfs.Where(x => x.WerfId == SiteId).Select(f => f.Werf).FirstOrDefault();
@@ -183,7 +186,7 @@ namespace MappingSPO
                         {
                             var employee = myXrmContext.Employees.FirstOrDefault(x => x.EmployeeId == site.Werfleider);
                             if (employee != null)
-                                listBoxControl7.Items.Add("Werfleider  : "+employee.FirstName + " " + employee.LastName + "#" + employee.Email);
+                                listBoxControl7.Items.Add("Werfleider  : " + employee.FirstName + " " + employee.LastName + "#" + employee.Email);
                         }
                         if (site.ProjectLeider.HasValue)
                         {
@@ -249,7 +252,7 @@ namespace MappingSPO
                 // GetProject linked with document
                 var ProjectList = myProjectContext.ProjectDocuments.Where(x => x.DocumentId == docId).Select(f => f.Project).ToList();
 
-                
+
                 foreach (var item in ProjectList)
                 {
                     listBoxControl1.Items.Add(item.ProjectName + "#" + item.ProjectId);

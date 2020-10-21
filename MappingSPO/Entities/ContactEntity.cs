@@ -5,7 +5,6 @@ namespace MappingSPO.Entities
     {
 		public ContactEntity()
         {
-            PlaceOfBirth = "Ramsel";
             Invoices = new System.Collections.Generic.List<InvoiceEntity>();
             RelationsContacts = new System.Collections.Generic.List<RelationsContactEntity>();
             InitializePartial();
@@ -44,7 +43,7 @@ namespace MappingSPO.Entities
         public string Code6 { get; set; }
         public string Code7 { get; set; }
         public string Code8 { get; set; }
-        public System.DateTime DateOfBirth { get; set; }
+        public System.DateTime? DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string NationalNumber { get; set; }
         public string IdNumber { get; set; }
