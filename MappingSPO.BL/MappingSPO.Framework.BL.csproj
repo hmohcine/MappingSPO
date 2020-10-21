@@ -82,6 +82,7 @@
     <Compile Include="Services\Project\SiteService.cs" />
     <Compile Include="VModels\Project\ProjectVM.cs" />
     <Compile Include="VModels\Project\SiteVM.cs" />
+    <Compile Include="VModels\SPO\Calculation.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
