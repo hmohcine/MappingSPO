@@ -33,7 +33,6 @@ namespace MappingSPO
         private void button1_Click(object sender, EventArgs e)
         {
             //var ProjectList = myProjectContext.Projects.ToList();
-
             var ProjectList = _projectService.GetAllProjects();
 
             listBoxControl1.Items.Clear();
