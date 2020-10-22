@@ -54,7 +54,6 @@ C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\bin\Debug\Sys
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\bin\Debug\Z.EntityFramework.Extensions.xml
-C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\obj\Debug\MappingSPO.Framework.DL.csprojAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\obj\Debug\MappingSPO.Framework.DL.csproj.CoreCompileInputs.cache
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\obj\Debug\MappingSPO.Framework.DL.csproj.CopyComplete
 C:\Users\admin\Documents\GitHub\MappingSPO\MappingSPO.Framework.DL\obj\Debug\MappingSPO.Framework.DL.dll
